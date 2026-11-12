@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Trangone.Master" AutoEventWireup="true" CodeFile="QuanLyDonDat.aspx.cs" Inherits="aspx_QuanLyDonDat" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="QuanLyDonDat.aspx.cs" Inherits="Ql_tiembanhngot.aspx.QuanLyDonDat" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
         <h1 class="h3 fw-bold text-dark">
             <i class="fa-solid fa-calendar-check me-2 text-warning"></i>Quản Lý Đơn Đặt Bánh
@@ -37,6 +36,12 @@
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Số điện thoại</label>
                         <asp:TextBox ID="txtSoDienThoai" runat="server" CssClass="form-control" placeholder="Nhập số điện thoại"></asp:TextBox>
+                    </div>
+                    <!-- Bổ sung DropDownList Loại Bánh -->
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Loại bánh</label>
+                        <asp:DropDownList ID="ddlLoaiBanh" runat="server" CssClass="form-select">
+                        </asp:DropDownList>
                     </div>
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Ngày nhận bánh dự kiến</label>
@@ -79,6 +84,7 @@
                                 <asp:BoundField DataField="MaDon" HeaderText="Mã Đơn" />
                                 <asp:BoundField DataField="TenKhachHang" HeaderText="Khách Hàng" />
                                 <asp:BoundField DataField="SoDienThoai" HeaderText="SĐT" />
+                                <asp:BoundField DataField="TenLoai" HeaderText="Loại Bánh" />
                                 <asp:BoundField DataField="NgayNhan" HeaderText="Ngày Nhận" DataFormatString="{0:dd/MM/yyyy}" />
                                 <asp:BoundField DataField="TongTien" HeaderText="Tổng Tiền" DataFormatString="{0:N0} đ" />
                                 <asp:BoundField DataField="TrangThai" HeaderText="Trạng Thái" />
@@ -102,4 +108,3 @@
         </div>
     </div>
 </asp:Content>
-
