@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Trangone.Master" AutoEventWireup="true" CodeFile="QuanLyHoaDon.aspx.cs" Inherits="aspx_QuanLyHoaDon" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="QuanLyHoaDon.aspx.cs" Inherits="Ql_tiembanhngot.aspx.QuanLyHoaDon" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
         <h1 class="h3 fw-bold text-dark">
             <i class="fa-solid fa-file-invoice-dollar me-2 text-warning"></i>Quản Lý Hóa Đơn Bán Hàng
         </h1>
@@ -97,4 +96,3 @@
         </div>
     </div>
 </asp:Content>
-
