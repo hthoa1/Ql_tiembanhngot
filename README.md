@@ -1,4 +1,4 @@
-# 🎂 Hệ Thống Quản Lý Tiệm Bánh Ngọt (Bakery Manager)
+# 🎂 Hệ Thống Quản Lý Tiệm Bánh Ngọt (Bakery Manager)(còn chỉnh sửa thêm :' )
 
 Ứng dụng web quản lý tiệm bánh ngọt được phát triển bằng **ASP.NET Web Forms**, thiết kế giao diện hiện đại với **Bootstrap 5** và kết nối cơ sở dữ liệu trực tiếp bằng **SQL Server**.
 
