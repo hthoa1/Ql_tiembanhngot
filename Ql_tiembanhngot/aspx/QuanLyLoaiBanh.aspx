@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Trangone.Master" AutoEventWireup="true" CodeFile="QuanLyLoaiBanh.aspx.cs" Inherits="aspx_QuanLyLoaiBanh" %>
-
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="QuanLyLoaiBanh.aspx.cs" Inherits="Ql_tiembanhngot.aspx.QuanLyLoaiBanh" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
         <h1 class="h3 fw-bold text-dark">
             <i class="fa-solid fa-list-check me-2 text-warning"></i>Quản Lý Loại Bánh
@@ -82,4 +81,3 @@
         </div>
     </div>
 </asp:Content>
-
