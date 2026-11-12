@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Trangone.Master" AutoEventWireup="true" CodeFile="QuanLyBanh.aspx.cs" Inherits="aspx_QuanLyBanh" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeFile="QuanLyBanh.aspx.cs" Inherits="aspx_QuanLyBanh" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
