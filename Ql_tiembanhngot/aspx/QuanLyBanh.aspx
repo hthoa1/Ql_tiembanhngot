@@ -1,101 +1,117 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeFile="QuanLyBanh.aspx.cs" Inherits="aspx_QuanLyBanh" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Ql_tiembanhngot.MasterPage" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
-    <div class="d-flex justify-content-between align-items-center pb-2 mb-4 border-bottom">
-        <h1 class="h3 fw-bold text-dark">
-            <i class="fa-solid fa-cookie-bite me-2 text-warning"></i>Quản Lý Sản Phẩm Bánh
-        </h1>
-        <span class="text-muted">Danh mục và thông tin chi tiết các loại bánh</span>
-    </div>
+<!DOCTYPE html>
+<html lang="vi">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Hệ Thống Quản Lý Tiệm Bánh Ngọt</title>
 
-    <!-- Khung thông báo -->
-    <asp:Panel ID="pnlMessage" runat="server" Visible="false" CssClass="alert alert-dismissible fade show" role="alert">
-        <asp:Label ID="lblMessage" runat="server" Text=""></asp:Label>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </asp:Panel>
+    <!-- Bootstrap 5 CSS & FontAwesome Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
-    <div class="row g-4">
-        <!-- Form Nhập / Sửa Sản Phẩm (Cột trái) -->
-        <div class="col-md-4">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-white py-3">
-                    <h5 class="mb-0 fw-bold text-secondary">
-                        <asp:Label ID="lblFormTitle" runat="server" Text="Thêm Bánh Mới"></asp:Label>
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Mã bánh</label>
-                        <asp:TextBox ID="txtMaBanh" runat="server" CssClass="form-control" placeholder="Ví dụ: B05"></asp:TextBox>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="bg-light">
+    <form id="form1" runat="server">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Sidebar Menu -->
+                <nav class="col-md-3 col-lg-2 d-md-block bg-dark text-white min-vh-100 p-3 collapse d-md-block shadow" id="sidebarMenu">
+                    <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                        <i class="fa-solid fa-cake-candles fa-2x text-warning me-2"></i>
+                        <span class="fs-4 fw-bold">Bakery Manager</span>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Tên bánh</label>
-                        <asp:TextBox ID="txtTenBanh" runat="server" CssClass="form-control" placeholder="Nhập tên bánh"></asp:TextBox>
+                    <hr class="border-secondary">
+
+                    <!-- Danh sách menu điều hướng phân quyền từ Code-Behind -->
+                    <ul class="nav nav-pills flex-column mb-auto gap-1">
+                        <li class="nav-item" runat="server" id="menuThongKe">
+                            <a runat="server" href="~/aspx/ThongKe.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-chart-line me-2 text-warning" style="width: 20px;"></i>Tổng Quan
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuHoaDon">
+                            <a runat="server" href="~/aspx/HoaDon.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-cash-register me-2 text-warning" style="width: 20px;"></i>Lập Hóa Đơn
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuDonDat">
+                            <a runat="server" href="~/aspx/DonDatBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-calendar-check me-2 text-warning" style="width: 20px;"></i>Đơn Đặt Bánh
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuBanh">
+                            <a runat="server" href="~/aspx/QuanlyBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-cookie-bite me-2 text-warning" style="width: 20px;"></i>Sản Phẩm Bánh
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuLoaiBanh">
+                            <a runat="server" href="~/aspx/LoaiBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-layer-group me-2 text-warning" style="width: 20px;"></i>Loại Bánh
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuNguyenLieu">
+                            <a runat="server" href="~/aspx/QuanLyNguyenLieu.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-boxes-stacked me-2 text-warning" style="width: 20px;"></i>Kho Nguyên Liệu
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuNhanVien">
+                            <a runat="server" href="~/aspx/QuanLyNhanVien.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-users me-2 text-warning" style="width: 20px;"></i>Quản Lý Nhân Viên
+                            </a>
+                        </li>
+                        <li class="nav-item" runat="server" id="menuCaiDat">
+                            <a runat="server" href="~/aspx/CaiDat.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                                <i class="fa-solid fa-gear me-2 text-warning" style="width: 20px;"></i>Cài Đặt Hệ Thống
+                            </a>
+                        </li>
+                    </ul>
+
+                    <hr class="border-secondary">
+
+                    <!-- Thông tin tài khoản đăng nhập hiện tại -->
+                    <div class="dropdown pb-3">
+                        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle bg-secondary bg-opacity-25 p-2 rounded border border-secondary border-opacity-50" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-user-circle fa-2x me-2 text-warning"></i>
+                            <div class="overflow-hidden">
+                                <div class="text-truncate"><asp:Label ID="lblUserCurrent" runat="server" CssClass="fw-bold" Text="Xin chào..." /></div>
+                                <small class="text-warning"><asp:Label ID="lblQuyenCurrent" runat="server" Text="Quyền" /></small>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-key me-2"></i>Đổi mật khẩu</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <asp:LinkButton ID="btnLogout" runat="server" CssClass="dropdown-item text-danger fw-semibold" OnClick="btnLogout_Click">
+                                    <i class="fa-solid fa-right-from-bracket me-2"></i>Đăng xuất
+                                </asp:LinkButton>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Loại bánh</label>
-                        <asp:DropDownList ID="ddlLoaiBanh" runat="server" CssClass="form-select">
-                        </asp:DropDownList>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Giá bán (VNĐ)</label>
-                        <asp:TextBox ID="txtGiaBan" runat="server" CssClass="form-control" placeholder="Ví dụ: 150000"></asp:TextBox>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Đơn vị tính</label>
-                        <asp:TextBox ID="txtDonViTinh" runat="server" CssClass="form-control" placeholder="Ví dụ: Cái, Chiếc"></asp:TextBox>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label fw-semibold">Tên file hình ảnh</label>
-                        <asp:TextBox ID="txtHinhAnh" runat="server" CssClass="form-control" placeholder="Ví dụ: banh1.jpg"></asp:TextBox>
+                </nav>
+
+                <!-- Main Content Area -->
+                <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4 min-vh-100">
+                    <!-- Top Bar Header -->
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+                        <h1 class="h3 text-secondary fw-bold">Hệ Thống Quản Lý Tiệm Bánh Ngọt</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <span class="badge bg-warning text-dark p-2 fw-semibold shadow-sm">Phiên bản 1.0 - ql_banh</span>
+                        </div>
                     </div>
 
-                    <div class="d-grid gap-2">
-                        <asp:Button ID="btnSave" runat="server" Text="Thêm Mới" CssClass="btn btn-warning fw-semibold text-dark" OnClick="btnSave_Click" />
-                        <asp:Button ID="btnCancel" runat="server" Text="Hủy / Làm mới" CssClass="btn btn-outline-secondary fw-semibold" OnClick="btnCancel_Click" />
-                    </div>
-                </div>
+                    <!-- Vùng chứa nội dung trang con -->
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </main>
             </div>
         </div>
+    </form>
 
-        <!-- Bảng Danh Sách Sản Phẩm (Cột phải) -->
-        <div class="col-md-8">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-white py-3">
-                    <h5 class="mb-0 fw-bold text-secondary">Danh Sách Bánh Hiện Có</h5>
-                </div>
-                <div class="card-body p-0">
-                    <div class="table-responsive">
-                        <asp:GridView ID="gvBanh" runat="server" AutoGenerateColumns="False" 
-                            CssClass="table table-hover table-striped align-middle mb-0" GridLines="None"
-                            DataKeyNames="MaBanh" OnRowCommand="gvBanh_RowCommand">
-                            <Columns>
-                                <asp:BoundField DataField="MaBanh" HeaderText="Mã Bánh" />
-                                <asp:BoundField DataField="TenBanh" HeaderText="Tên Bánh" />
-                                <asp:BoundField DataField="TenLoai" HeaderText="Loại Bánh" />
-                                <asp:BoundField DataField="GiaBan" HeaderText="Giá Bán" DataFormatString="{0:N0} đ" />
-                                <asp:BoundField DataField="DonViTinh" HeaderText="ĐVT" />
-                                <asp:BoundField DataField="HinhAnh" HeaderText="Hình Ảnh" />
-                                
-                                <asp:TemplateField HeaderText="Thao Tác" ItemStyle-CssClass="text-end" HeaderStyle-CssClass="text-end">
-                                    <ItemTemplate>
-                                        <asp:LinkButton ID="btnEdit" runat="server" CommandName="EditBanh" CommandArgument='<%# Eval("MaBanh") %>' CssClass="btn btn-sm btn-outline-primary me-1">
-                                            <i class="fa-solid fa-pen-to-square"></i> Sửa
-                                        </asp:LinkButton>
-                                        <asp:LinkButton ID="btnDelete" runat="server" CommandName="DeleteBanh" CommandArgument='<%# Eval("MaBanh") %>' 
-                                            CssClass="btn btn-sm btn-outline-danger" OnClientClick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?');">
-                                            <i class="fa-solid fa-trash"></i> Xóa
-                                        </asp:LinkButton>
-                                    </ItemTemplate>
-                                </asp:TemplateField>
-                            </Columns>
-                        </asp:GridView>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</asp:Content>
-
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
