@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Ql_tiembanhngot.MasterPage" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="Ql_tiembanhngot.MasterPage" %>
 
 <!DOCTYPE html>
 <html lang="vi">
@@ -34,22 +34,22 @@
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="menuHoaDon">
-                            <a runat="server" href="~/aspx/HoaDon.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                            <a runat="server" href="~/aspx/QuanLyHoaDon.aspx" class="nav-link text-white d-flex align-items-center py-2">
                                 <i class="fa-solid fa-cash-register me-2 text-warning" style="width: 20px;"></i>Lập Hóa Đơn
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="menuDonDat">
-                            <a runat="server" href="~/aspx/DonDatBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                            <a runat="server" href="~/aspx/QuanLyDonDat.aspx" class="nav-link text-white d-flex align-items-center py-2">
                                 <i class="fa-solid fa-calendar-check me-2 text-warning" style="width: 20px;"></i>Đơn Đặt Bánh
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="menuBanh">
-                            <a runat="server" href="~/aspx/Banh.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                            <a runat="server" href="~/aspx/QuanlyBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
                                 <i class="fa-solid fa-cookie-bite me-2 text-warning" style="width: 20px;"></i>Sản Phẩm Bánh
                             </a>
                         </li>
                         <li class="nav-item" runat="server" id="menuLoaiBanh">
-                            <a runat="server" href="~/aspx/LoaiBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
+                            <a runat="server" href="~/aspx/QuanLyLoaiBanh.aspx" class="nav-link text-white d-flex align-items-center py-2">
                                 <i class="fa-solid fa-layer-group me-2 text-warning" style="width: 20px;"></i>Loại Bánh
                             </a>
                         </li>
