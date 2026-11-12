@@ -44,6 +44,6 @@ ql_banh/
 ├── ketnoi/                 # Lớp xử lý kết nối cơ sở dữ liệu dùng chung
 │   └── Database.cs         # Cung cấp các hàm GetData, ExecuteNonQuery, ExecuteScalar
 │
-├── Default.aspx            # Trang chủ / Đăng nhập hệ thống
+├── Default.aspx            # Đăng nhập hệ thống vào thống kê
 ├── MasterPage.master       # Khung giao diện chung (Sidebar phân quyền & Header)
 └── README.md               # Tài liệu hướng dẫn dự án
